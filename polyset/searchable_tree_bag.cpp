@@ -21,7 +21,7 @@ searchable_tree_bag& searchable_tree_bag::operator=(const searchable_tree_bag& s
 
 bool searchable_tree_bag::search(node* node, const int value) const
 {
-	if(node == nullptr)
+	if(node == NULL)
 		return(false);
 	if(node->value == value)
 		return(true);

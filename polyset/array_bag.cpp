@@ -1,6 +1,6 @@
 #include "array_bag.hpp"
 
-array_bag::array_bag() : size(0), data (nullptr) {}
+array_bag::array_bag() : data (NULL), size(0) {}
 
 array_bag::array_bag(const array_bag &src) 
 {
@@ -14,10 +14,10 @@ array_bag &array_bag::operator=(const array_bag &src)
 {
 	if (this != &src)
 	{
-		if (data != nullptr)
+		if (data != NULL)
 		{
 			delete[] data;
-			data = nullptr;
+			data = NULL;
 		}
 		size = src.size;
 		data = new int[size];
@@ -29,10 +29,10 @@ array_bag &array_bag::operator=(const array_bag &src)
 
 array_bag::~array_bag()
 {
-	if (data != nullptr)
+	if (data != NULL)
 	{
 		delete[] data;
-		data = nullptr;
+		data = NULL;
 	}
 }
 
@@ -42,7 +42,7 @@ void array_bag::insert(int item)
 	for (int i = 0; i < size; i++)
 		new_data[i] = data[i];
 	new_data[size] = item;
-	if (data != nullptr)
+	if (data != NULL)
 		delete[] data;
 	data = new_data;
 	size++;
@@ -55,7 +55,7 @@ void array_bag::insert(int *items, int count)
 		new_data[i] = data[i];
 	for (int i = 0; i < count; i++)
 		new_data[size + i] = items[i];
-	if (data != nullptr)
+	if (data != NULL)
 		delete[] data;
 	data = new_data;
 	size += count;
@@ -70,10 +70,10 @@ void array_bag::print() const
 
 void array_bag::clear()
 {
-	if (data != nullptr) 
+	if (data != NULL) 
 	{
 		delete[] data;
-		data = nullptr;
+		data = NULL;
 	}
 	size = 0;
 }

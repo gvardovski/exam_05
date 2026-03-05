@@ -1,6 +1,6 @@
 #include "tree_bag.hpp"
 
-tree_bag::tree_bag() : tree(nullptr) {}
+tree_bag::tree_bag() : tree(NULL) {}
 
 tree_bag::tree_bag(const tree_bag &src) 
 {
@@ -25,7 +25,7 @@ tree_bag &tree_bag::operator=(const tree_bag &src)
 tree_bag::node *tree_bag::extract_tree() 
 {
 	node *temp = tree;
-	tree = nullptr;
+	tree = NULL;
 	return temp;
 }
 
@@ -38,12 +38,11 @@ void tree_bag::set_tree(node *new_tree)
 void tree_bag::insert(int item)
  {
 	node *new_node = new node;
-	std::cout << "create node: " << item << std::endl;
 	new_node->value = item;
-	new_node->l = nullptr;
-	new_node->r = nullptr;
+	new_node->l = NULL;
+	new_node->r = NULL;
 
-	if (tree == nullptr)
+	if (tree == NULL)
 		tree = new_node;
 	else 
 	{
@@ -52,7 +51,7 @@ void tree_bag::insert(int item)
 		{
 			if (item < current->value) 
 			{
-				if (current->l == nullptr) 
+				if (current->l == NULL) 
 				{
 					current->l = new_node;
 					break;
@@ -62,7 +61,7 @@ void tree_bag::insert(int item)
 			} 
 			else if (item > current->value) 
 			{
-				if (current->r == nullptr)
+				if (current->r == NULL)
 				{
 					current->r = new_node;
 					break;
@@ -72,7 +71,6 @@ void tree_bag::insert(int item)
 			} 
 			else 
 			{
-				std::cout << "duplicate value: delete node" << std::endl;
 				delete new_node;
 				break;
 			}
@@ -95,14 +93,13 @@ void tree_bag::print() const
 void tree_bag::clear() 
 {
 	destroy_tree(tree);
-	tree = nullptr;
+	tree = NULL;
 }
 
 void tree_bag::destroy_tree(node *current) 
 {
-	if (current != nullptr) 
+	if (current != NULL) 
 	{
-		std::cout << "destroying value: " << current->value << std::endl;
 		destroy_tree(current->l);
 		destroy_tree(current->r);
 		delete current;
@@ -111,7 +108,7 @@ void tree_bag::destroy_tree(node *current)
 
 void tree_bag::print_node(node *current) 
 {
-	if (current != nullptr) 
+	if (current != NULL) 
 	{
 		print_node(current->l);
 		if (current->value != 0)
@@ -122,8 +119,8 @@ void tree_bag::print_node(node *current)
 
 tree_bag::node *tree_bag::copy_node(node *current) 
 {
-	if (current == nullptr) 
-		return nullptr;
+	if (current == NULL) 
+		return NULL;
 	else 
 	{
 		node *new_node = new node;
