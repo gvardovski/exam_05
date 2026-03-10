@@ -31,19 +31,20 @@ int main(int argc, char **argv)
 	a->clear();
 	const searchable_array_bag tmp(static_cast<searchable_array_bag &>(*a));
 	tmp.print();
-	tmp.has(1);
+	std::cout << tmp.has(1) << std::endl;
 	set sa(*a);
 	set st(*t);
 	for (int i = 1; i < argc; i++)
 	{
 		st.insert(atoi(argv[i]));
 		sa.insert(atoi(argv[i]));
-		sa.has(atoi(argv[i]));
+		std::cout << sa.has(atoi(argv[i])) << std::endl;
 		sa.print();
 		sa.get_bag().print();
 		st.print();
 		sa.clear();
-		sa.insert((int[]){ 1, 2, 3, 4, }, 4);
+		int arr[4] = {6, 7, 8, 9};
+		sa.insert(arr, 4);
 		std::cout << std::endl;
 	}
 }
