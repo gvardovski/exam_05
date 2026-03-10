@@ -2,7 +2,7 @@
 #include "searchable_tree_bag.hpp"
 #include "searchable_array_bag.hpp"
 #include <stdlib.h>
-// #include "set.hpp"
+#include "set.hpp"
 
 int main(int argc, char **argv)
 {
@@ -20,8 +20,11 @@ int main(int argc, char **argv)
 	for (int i = 1; i < argc; i++)
 	{
 		std::cout << t->has(atoi(argv[i])) << std::endl;
-		std::cout << a->has(atoi(argv[i])) << std::endl;
 		std::cout << t->has(atoi(argv[i]) - 1) << std::endl;
+	}
+	for (int i = 1; i < argc; i++)
+	{
+		std::cout << a->has(atoi(argv[i])) << std::endl;
 		std::cout << a->has(atoi(argv[i]) - 1) << std::endl;
 	}
 	t->clear();
@@ -29,20 +32,18 @@ int main(int argc, char **argv)
 	const searchable_array_bag tmp(static_cast<searchable_array_bag &>(*a));
 	tmp.print();
 	tmp.has(1);
-	// set sa(*a);
-	// set st(*t);
-	// for (int i = 1; i < argc; i++)
-	// {
-	// 	st.insert(atoi(argv[i]));
-	// 	sa.insert(atoi(argv[i]));
-
-	// 	sa.has(atoi(argv[i]));
-	// 	sa.print();
-	// 	sa.get_bag().print();
-	// 	st.print();
-	// 	sa.clear();
-	// 	sa.insert((int[]){ 1, 2, 3, 4, }, 4);
-	// 	std::cout << std::endl;
-	// }
-	// return (0);
+	set sa(*a);
+	set st(*t);
+	for (int i = 1; i < argc; i++)
+	{
+		st.insert(atoi(argv[i]));
+		sa.insert(atoi(argv[i]));
+		sa.has(atoi(argv[i]));
+		sa.print();
+		sa.get_bag().print();
+		st.print();
+		sa.clear();
+		sa.insert((int[]){ 1, 2, 3, 4, }, 4);
+		std::cout << std::endl;
+	}
 }
