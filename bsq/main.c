@@ -1,20 +1,20 @@
 #include "bsq.h"
 
-int main(int argc, char **argv)
+int main(int gc, char **gv)
 {
-    if (argc < 2) 
-	{
-        if (!process_stream(stdin))
-            fputs("map error\n", stderr);
-    } 
-	else 
-	{
-        for (int i = 1; i < argc; i++)
-		{
-            if (!process_file(argv[i]))
-                fputs("map error\n", stderr);
-            if (i + 1 < argc)
-                fputs("\n", stdout);
+    if (gc < 2)
+    {
+        if (!procStream(stdin))
+            return fputs("map error\n", stderr);
+    }
+    else
+    {
+        for(int i = 1; i < gc; i++)
+        {
+            if(!procFile(gv[i]))
+                return fputs("map error\n", stderr);
+            if(i + 1 < gc)
+                return fputs("\n", stdout);
         }
     }
     return 0;
