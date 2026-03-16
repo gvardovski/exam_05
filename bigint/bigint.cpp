@@ -170,7 +170,7 @@ bool bigint::operator!=(const bigint &b) const
 
 bool bigint::operator>(const bigint &b) const
 {
-    return !(*this < b);
+    return b < *this;
 }
 
 bool bigint::operator<=(const bigint &b) const
