@@ -32,11 +32,7 @@ static int parseElem(FILE *f, t_elem *el)
     if (!f || !el)
         return 0;
     int n = fscanf(f, "%d %c %c %c\n", &el->n_elem, &el->free, &el->obstacle, &el->full);
-    if (n != 4)
-        return 0;
-    if (el->n_elem <= 0)
-        return 0;
-    if (el->free == el->obstacle || el->free == el->full || el->obstacle == el->full)
+    if (n != 4 || el->n_elem <= 0 || el->free == el->obstacle || el->free == el->full || el->obstacle == el->full)
         return 0;
     return 1;
 }
@@ -57,7 +53,7 @@ static int parseMap(FILE *f, t_map *map, t_elem *el)
     for (i = 0; i < map->height; i++) 
 	{
         ssize_t len = getline(&line, &cap, f);
-        if (len == -1 || len <= 1 || line[--len] != '\n')
+        if (len <= 1 || line[--len] != '\n')
             return freeAll(line, map);
         line[len] = '\0';
         if (map->width == 0) 
@@ -129,11 +125,9 @@ static int solve_bsq(t_map *map, t_elem *el)
                 }
             }
         }
-        {
-            int *tmp = prev;
-            prev = curr;
-            curr = tmp;
-        }
+        int *tmp = prev;
+        prev = curr;
+        curr = tmp;
     }
     if (best.size > 0)
     {
