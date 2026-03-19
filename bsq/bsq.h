@@ -1,8 +1,8 @@
 #ifndef BSQ_H
 #define BSQ_H
 
-#include <stdio.h>
 #include <unistd.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 typedef struct s_map
@@ -15,19 +15,19 @@ typedef struct s_map
 typedef struct s_elem
 {
     int n_elem;
-    char free;
-    char obstacle;
+    char empty;
+    char obst;
     char full;
 } t_elem;
 
 typedef struct s_square
 {
     int size;
-    int botm_i;
-    int botm_j;
+    int btm_i;
+    int btm_j;
 } t_square;
 
-int procFile(char *path);
 int procStream(FILE *f);
+int procFile(char *path);
 
 #endif
