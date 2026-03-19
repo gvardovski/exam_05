@@ -1,24 +1,23 @@
 #ifndef LIFE_H
 #define LIFE_H
 
-#include <stdio.h>
-#include <stdlib.h>
 #include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
 
-typedef struct s_life 
+typedef struct s_life
 {
+    char *grid;
+    char *seq;
     int width;
     int height;
-	int iter;
-    char *curr;
-    char *next;
+    int iter;
 } t_life;
 
-int createLife(t_life *life);
-void destroyLife(t_life *life);
-void readDraw(t_life *life);
-void runLife(t_life *life);
-void printLife(t_life *life);
-int takeArg(t_life *life, char **gv);
+int getArg(t_life *life, char **gv);
+int getCom(t_life *life);
+int playGame(t_life *life);
+int freeAll(t_life *life);
+void printGrid(t_life *life);
 
 #endif
