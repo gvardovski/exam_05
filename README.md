@@ -1,4 +1,8 @@
-bigint/ (C++): arbitrary-precision unsigned integer class with addition, comparisons, decimal digit-shifts (<</>>), and << printing.
-bsq/ (C): “biggest square” solver that reads a map (file args or stdin), finds the largest obstacle-free square, and prints the result (or map error for invalid input).
-life/ (C): Conway’s Game of Life simulator where the initial board is drawn via simple pen commands from stdin.
-polyset/ (C++): OOP exercise implementing searchable “bag” data structures (array-backed and BST-backed) and a set wrapper that enforces uniqueness.
+42 IT School Exam 5 practice repo 🏫✅ with multiple small C/C++ algorithm projects, each in its own folder with a subject.txt and test main.
+
+What’s inside 📦:
+
+bigint/ ➕🔢 — arbitrary-precision unsigned integer (BigInt) with add/compare, base-10 digit shift (<</>>), and printing.
+bsq/ 🗺️⬛ — “Biggest Square” solver: reads a map (file or stdin), finds the largest empty square avoiding obstacles, and prints the result (or map error ⚠️).
+life/ 🧬🎮 — Conway’s Game of Life simulation; initial board is drawn from stdin commands, then iterated and printed.
+polyset/ 🧺🌳➡️🔎 — OOP exercise: searchable “bag” implementations (array + BST) and a set wrapper enforcing uniqueness.
